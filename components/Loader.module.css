@@ -1,0 +1,146 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-12) 0;
+  animation: fadeIn 0.4s ease;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+  padding: var(--space-10) var(--space-12);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  max-width: 560px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Animated Ring */
+.ringWrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  animation: spin 1.2s linear infinite;
+}
+
+.ringInner {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  border-bottom-color: rgba(167, 139, 250, 0.6);
+  animation: spin 0.8s linear infinite reverse;
+}
+
+.ringIcon {
+  font-size: 1.5rem;
+  z-index: 1;
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.url {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--color-accent-hover);
+  font-family: var(--font-mono);
+  word-break: break-all;
+  background: var(--color-accent-light);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+/* Steps */
+.steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+@keyframes stepFadeIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  opacity: 0;
+  animation: stepFadeIn 0.5s ease forwards;
+}
+
+.stepIcon {
+  font-size: 0.9rem;
+}
+
+.stepText {
+  flex: 1;
+}
+
+.stepDots {
+  display: flex;
+  gap: 3px;
+}
+
+.stepDots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.stepDots span:nth-child(2) { animation-delay: 0.2s; }
+.stepDots span:nth-child(3) { animation-delay: 0.4s; }
+
+.note {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+@media (max-width: 540px) {
+  .card {
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-8);
+    text-align: center;
+  }
+  .url {
+    justify-content: center;
+  }
+}

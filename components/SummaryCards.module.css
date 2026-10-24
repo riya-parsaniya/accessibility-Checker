@@ -1,0 +1,233 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  animation: fadeIn 0.5s ease;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.scannedUrl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  word-break: break-all;
+  max-width: 500px;
+}
+
+.totalBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  padding: var(--space-3) var(--space-5);
+  background: linear-gradient(135deg, rgba(255, 71, 87, 0.15), rgba(255, 107, 53, 0.15));
+  border: 1px solid rgba(255, 71, 87, 0.25);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.totalNumber {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-critical);
+  line-height: 1;
+}
+
+.totalLabel {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+/* Grid of impact cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardCount {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cardLabel {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.cardIndicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+/* Impact-specific colors */
+.card--critical {
+  border-color: var(--color-critical-border);
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-critical-bg));
+}
+.card--critical .cardIcon {
+  background: var(--color-critical-bg);
+  color: var(--color-critical);
+}
+.card--critical .cardCount { color: var(--color-critical); }
+.card--critical .cardIndicator { background: var(--color-critical); }
+
+.card--serious {
+  border-color: var(--color-serious-border);
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-serious-bg));
+}
+.card--serious .cardIcon {
+  background: var(--color-serious-bg);
+  color: var(--color-serious);
+}
+.card--serious .cardCount { color: var(--color-serious); }
+.card--serious .cardIndicator { background: var(--color-serious); }
+
+.card--moderate {
+  border-color: var(--color-moderate-border);
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-moderate-bg));
+}
+.card--moderate .cardIcon {
+  background: var(--color-moderate-bg);
+  color: var(--color-moderate);
+}
+.card--moderate .cardCount { color: var(--color-moderate); }
+.card--moderate .cardIndicator { background: var(--color-moderate); }
+
+.card--minor {
+  border-color: var(--color-minor-border);
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-minor-bg));
+}
+.card--minor .cardIcon {
+  background: var(--color-minor-bg);
+  color: var(--color-minor);
+}
+.card--minor .cardCount { color: var(--color-minor); }
+.card--minor .cardIndicator { background: var(--color-minor); }
+
+/* Stats Row */
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+.statValue {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.statLabel {
+  color: var(--color-text-muted);
+}
+
+.statDivider {
+  width: 1px;
+  height: 20px;
+  background: var(--color-border);
+}
+
+.allClearBadge {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-pass);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .header {
+    flex-direction: column;
+  }
+  .statsRow {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+  .card {
+    padding: var(--space-4);
+  }
+  .cardCount {
+    font-size: 1.4rem;
+  }
+}
